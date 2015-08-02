@@ -1,0 +1,11 @@
+#ifdef
+
+class LinkedList{
+
+
+
+
+
+};
+
+#endif
