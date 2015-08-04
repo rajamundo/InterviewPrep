@@ -12,7 +12,11 @@ private:
 
   //private member function that will be used by overloading the assignment operator and destructor
   //written in order to avoid copying code
-  void RemoveAll();
+  void RemoveAll(){
+    while(head){
+      this->removeFront();
+    }
+  }
 
   //used by both overloaded assignment operator and copy constructor
   Node* CopyAll(const LinkedList &list);
@@ -27,7 +31,7 @@ public:
 
   int removeFront();
 
-  Node* find(int value);
+  //Node* find(int value);
 
   void deleteElement(int value);
 
@@ -41,7 +45,7 @@ public:
 };
 
 LinkedList::LinkedList(){
-  this.first = nullptr;
+  head = nullptr;
 }
 
 LinkedList::LinkedList(int value){
@@ -50,9 +54,49 @@ LinkedList::LinkedList(int value){
 
 void LinkedList::insertFront(int value){
   Node *np = new Node;
-  np->next = first;
+  np->next = head;
   np->datum = value;
-  first = np;
+  head = np;
 }
+
+int LinkedList::removeFront(){
+  if(!this->isEmpty()){
+    Node *np = head;
+    head = np->next;
+    int value = np->datum;
+    delete np; np = 0;
+    return value;
+  }
+  //need to throw an error if there is no more nodes left
+  return 0;
+}
+
+const int LinkedList::front(){
+  return head->datum;
+}
+//
+// Node* LinkedList::find(int value){
+//   bool exists = false;
+//   while(head){ //always check for the end
+//     Node *np = head;
+//     if(np-> datum == value){
+//       exists = true;
+//       break;
+//     }
+//     head = head->next;
+//   }
+//   if(exists) return np;
+//   else return nullptr; //need to throw exception instead
+// }
+
+LinkedList::~LinkedList(){
+  this->RemoveAll();
+}
+
+void LinkedList::deleteElement(int value){
+
+}
+
+
 
 #endif
