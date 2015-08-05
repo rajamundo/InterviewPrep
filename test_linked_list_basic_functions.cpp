@@ -1,8 +1,10 @@
+#define CATCH_CONFIG_MAIN
 #include <iostream>
-#include "catch.hpp" 
+#include "catch.hpp"
 #include "linked_list.h"
 
 using namespace std;
+
 
 TEST_CASE( "linked list is empty", "[linked list]"){
   SECTION("the list is constructed without a default value"){

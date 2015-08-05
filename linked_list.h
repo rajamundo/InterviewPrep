@@ -49,7 +49,12 @@ LinkedList::LinkedList(){
 }
 
 LinkedList::LinkedList(int value){
+  head = nullptr;
   insertFront(value);
+}
+
+bool LinkedList::isEmpty(){
+  return !head;
 }
 
 void LinkedList::insertFront(int value){
