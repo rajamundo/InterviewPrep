@@ -27,7 +27,7 @@ public:
 
   void insertFront(int value);
 
-  const int front();
+  int front();
 
   int removeFront();
 
@@ -76,7 +76,7 @@ int LinkedList::removeFront(){
   return 0;
 }
 
-const int LinkedList::front(){
+int LinkedList::front(){
   return head->datum;
 }
 //
@@ -99,7 +99,7 @@ LinkedList::~LinkedList(){
 }
 
 void LinkedList::deleteElement(int value){
-
+  int example = value;
 }
 
 

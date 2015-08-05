@@ -49,6 +49,18 @@
 * Allows any mistakes to be caught by the compiler
 * Use const for things that are passed by reference, but won't be changed
 
+### Structs & Classes
+* Structs are passed by value and therefore should be passed by reference or use pointers
+* `t->a` is way to access data inside pointer-to-struct
+* A class contains member data and member functions
+* By default every member of a class is private, so get and set functions are sometimes used to access and alter the values of member variables
+
+#### Constructors
+* A member function with the same name as the class that is used to initialize member variables
+* Runs automatically when a new object is created
+* Default Constructor takes no input: `Rectangle() {short = 0, long = 0;}`
+* __Function Overloading__: two different functions with the same name, but different prototypes
+
 
 
 
