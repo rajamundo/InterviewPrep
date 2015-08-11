@@ -43,6 +43,11 @@ profile: clean all
 all: $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
+#all: lists stacks
+
+travis: $(OBJECTS)
+	$(CXX) $(OBJECTS) -o travis
+
 # Automatically generate any build rules for test*.cpp files
 define make_tests
 OBJS = $$(filter-out $$(PROBJECTS), $$(OBJECTS))
@@ -59,6 +64,9 @@ tests: clean $(TESTS)
 # YOU NEED TO ADD YOUR OWN DEPENDENCIES HERE!!!
 
 #test_linked_list_basic_functions.o: catch_source.o
+
+lists: linked_list.h catch_source.cpp tests_for_linked_list.cpp
+	$(CXX) $(CXXFLAGS) catch_source.cpp tests_for_linked_list.cpp -o lists
 
 
 # rule for creating objects

@@ -4,8 +4,8 @@
 class LinkedList{
 private:
   struct Node{
-    Node *next;
-    int datum;
+      Node *next;
+      int datum;
   };
   //this is the pointer to the beginning of the list
   Node *head;
@@ -31,11 +31,9 @@ public:
 
   int removeFront();
 
-  //Node* find(int value);
+  bool doesExist(int value);
 
   void deleteElement(int value);
-
-  void deleteList();
 
   LinkedList();
 
@@ -79,28 +77,48 @@ int LinkedList::removeFront(){
 int LinkedList::front(){
   return head->datum;
 }
-//
-// Node* LinkedList::find(int value){
-//   bool exists = false;
-//   while(head){ //always check for the end
-//     Node *np = head;
-//     if(np-> datum == value){
-//       exists = true;
-//       break;
-//     }
-//     head = head->next;
-//   }
-//   if(exists) return np;
-//   else return nullptr; //need to throw exception instead
-// }
+
+bool LinkedList::doesExist(int value){
+  Node *np;
+  np = head;
+  while(np){ //always check for the end
+    if(np->datum == value){
+      break;
+    }
+    np = np->next;
+  }
+
+  return np;
+}
 
 LinkedList::~LinkedList(){
   this->RemoveAll();
 }
 
 void LinkedList::deleteElement(int value){
-  int example = value;
+  if(head){
+    Node *np = nullptr;
+    Node *future = nullptr;
+    np = head;
+    future = np->next;
+    if(np->datum == value){
+      head = np->next;
+      delete np; np = 0;
+    }
+    else{
+      while(future){
+        if(future->datum == value){
+          np->next = future->next;
+          delete future; future = 0;
+          break;
+        }
+        np = np->next;
+        future = future->next;
+      }
+    }
+  }
 }
+
 
 
 
