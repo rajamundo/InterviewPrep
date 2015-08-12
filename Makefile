@@ -20,38 +20,42 @@ OBJECTS		= $(SOURCES:%.cpp=%.o)
 PROJECTS    = $(wildcard project*.cpp) main.o
 PROBJECTS   = $(PROJECTS:%.cpp=%.o)
 # name of the executable produced by the top level
-EXECUTABLE 	= tests travis lists
+EXECUTABLE 	= tests
 
 #Default Flags
-CXXFLAGS = -std=c++11 -Wall -Werror -Wextra -pedantic
+
+CXXFLAGS = -Wall -Werror -Wextra -pedantic
+
+FLAGS = -std=c++11
 
 # make release - will compile "all" with $(CXXFLAGS) and the -O3 flag
 #				 also defines NDEBUG so that asserts will not check
-release: CXXFLAGS += -O3 -DNDEBUG
-release: all
-
-# make debug - will compile "all" with $(CXXFLAGS) and the -g flag
-#              also defines DEBUG so that "#ifdef DEBUG /*...*/ #endif" works
-debug: CXXFLAGS += -g3 -DDEBUG
-debug: clean all
-
-# make profile - will compile "all" with $(CXXFLAGS) and the -pg flag
-profile: CXXFLAGS += -pg
-profile: clean all
+# release: CXXFLAGS += -O3 -DNDEBUG
+# release: all
+#
+# # make debug - will compile "all" with $(CXXFLAGS) and the -g flag
+# #              also defines DEBUG so that "#ifdef DEBUG /*...*/ #endif" works
+# debug: CXXFLAGS += -g3 -DDEBUG
+# debug: clean all
+#
+# # make profile - will compile "all" with $(CXXFLAGS) and the -pg flag
+# profile: CXXFLAGS += -pg
+# profile: clean all
 
 # highest target; sews together all objects into executable
 all: $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
+	$(CXX) $(FLAGS) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
 #all: lists stacks
 
+#travis: CXXFLAGS -= std=c++11 -Wall -Werror -Wextra -pedantic
 travis: $(OBJECTS)
 	$(CXX) $(OBJECTS) -o travis
 
 # Automatically generate any build rules for test*.cpp files
 
-tests: CXXFLAGS += -pg -DDEBUG
-tests: clean $(TESTS)
+# tests: CXXFLAGS += -pg -DDEBUG
+# tests: clean $(TESTS)
 
 
 lists: linked_list.h catch_source.cpp tests_for_linked_list.cpp
@@ -64,7 +68,7 @@ lists: linked_list.h catch_source.cpp tests_for_linked_list.cpp
 
 # make clean - remove .o files, executable, tarball
 clean:
-	rm -f $(OBJECTS) $(EXECUTABLE) $(TESTS)
+	rm -f $(OBJECTS) $(EXECUTABLE) $(TESTS) travis lists
 
 rebuild: clean all
 
