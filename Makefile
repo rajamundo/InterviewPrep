@@ -24,9 +24,9 @@ EXECUTABLE 	= tests
 
 #Default Flags
 
-CXXFLAGS = -Wall -Werror -Wextra -pedantic
+#CXXFLAGS = -Wall -Werror -Wextra -pedantic
 
-FLAGS = -std=c++11
+FLAGS = -std=c++11 -Wall -Werror -Wextra -pedantic
 
 # make release - will compile "all" with $(CXXFLAGS) and the -O3 flag
 #				 also defines NDEBUG so that asserts will not check
@@ -44,7 +44,7 @@ FLAGS = -std=c++11
 
 # highest target; sews together all objects into executable
 all: $(OBJECTS)
-	$(CXX) $(FLAGS) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
+	$(CXX) $(FLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
 #all: lists stacks
 

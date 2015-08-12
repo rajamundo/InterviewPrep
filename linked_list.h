@@ -43,11 +43,11 @@ public:
 };
 
 LinkedList::LinkedList(){
-  head = nullptr;
+  head = NULL;
 }
 
 LinkedList::LinkedList(int value){
-  head = nullptr;
+  head = NULL;
   insertFront(value);
 }
 
@@ -97,8 +97,8 @@ LinkedList::~LinkedList(){
 
 void LinkedList::deleteElement(int value){
   if(head){
-    Node *np = nullptr;
-    Node *future = nullptr;
+    Node *np = NULL;
+    Node *future = NULL;
     np = head;
     future = np->next;
     if(np->datum == value){
