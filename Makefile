@@ -20,7 +20,7 @@ OBJECTS		= $(SOURCES:%.cpp=%.o)
 PROJECTS    = $(wildcard project*.cpp) main.o
 PROBJECTS   = $(PROJECTS:%.cpp=%.o)
 # name of the executable produced by the top level
-EXECUTABLE 	= tests
+EXECUTABLE 	= tests travis lists
 
 #Default Flags
 CXXFLAGS = -std=c++11 -Wall -Werror -Wextra -pedantic

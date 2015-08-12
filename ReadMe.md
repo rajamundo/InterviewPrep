@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rajamundo/InterviewPrep.svg?branch=master)](https://travis-ci.org/rajamundo/InterviewPrep)
+
 # Amaraj's Guide To Technical Interviews
 
 ## General Advice
