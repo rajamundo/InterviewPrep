@@ -61,7 +61,10 @@
 * A member function with the same name as the class that is used to initialize member variables
 * Runs automatically when a new object is created
 * Default Constructor takes no input: `Rectangle() {short = 0, long = 0;}`
-* __Function Overloading__: two different functions with the same name, but different prototypes as in to overload the default constructor, ```c++ Rectangle(int short_in, int long_in) { short = short_in; long = long_in} ```
+* __Function Overloading__: two different functions with the same name, but different prototypes as in to overload the default constructor,
+```c++
+Rectangle(int short_in, int long_in) { short = short_in; long = long_in}
+```
 
 
 
