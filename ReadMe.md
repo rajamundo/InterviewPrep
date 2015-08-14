@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/rajamundo/InterviewPrep.svg?branch=master)](https://travis-ci.org/rajamundo/InterviewPrep)
-
 # Amaraj's Guide To Technical Interviews
+
+[![Build Status](https://travis-ci.org/rajamundo/InterviewPrep.svg?branch=master)](https://travis-ci.org/rajamundo/InterviewPrep)
 
 ## General Advice
 
@@ -61,7 +61,7 @@
 * A member function with the same name as the class that is used to initialize member variables
 * Runs automatically when a new object is created
 * Default Constructor takes no input: `Rectangle() {short = 0, long = 0;}`
-* __Function Overloading__: two different functions with the same name, but different prototypes
+* __Function Overloading__: two different functions with the same name, but different prototypes as in to overload the default constructor, ```c++ Rectangle(int short_in, int long_in) { short = short_in; long = long_in} ```
 
 
 
@@ -80,3 +80,5 @@
 * The head pointer must be updated when a new element is added to the list or when the existing first element is removed
 * When traversing a linked list, _always check for the end of the list_ to avoid seg faults
 * Insertion and deletion require a pointer or reference to the element immediately preceding the deletion or insertion location
+
+## Unix Utilities
